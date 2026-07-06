@@ -87,10 +87,10 @@ export function VideoWorkspace({
 
   return (
     <section
-      className={`flex min-h-[620px] flex-col rounded-[28px] border bg-zinc-950/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl transition sm:p-4 ${
+      className={`flex min-h-[620px] flex-col rounded-[32px] border bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(24,24,27,0.88)_36%,rgba(7,8,11,0.95))] p-3 shadow-2xl shadow-black/35 backdrop-blur-xl transition duration-200 sm:p-4 ${
         isDragging
           ? "border-sky-300/70 shadow-[0_0_0_1px_rgba(125,211,252,0.35),0_28px_90px_rgba(14,165,233,0.16)]"
-          : "border-white/10"
+          : "border-white/10 hover:border-white/15"
       }`}
       onClick={onPreviewClick}
       onDragEnter={(event) => {
@@ -124,12 +124,12 @@ export function VideoWorkspace({
       role="button"
       tabIndex={0}
     >
-      <div className="flex items-center justify-between px-2 pb-3">
+      <div className="flex items-center justify-between gap-4 px-2 pb-4">
         <div>
-          <h2 className="text-sm font-semibold text-zinc-200">
+          <h2 className="text-sm font-black text-zinc-100">
             Video Preview
           </h2>
-          <p className="text-xs text-zinc-500">
+          <p className="mt-1 text-xs text-zinc-500">
             {projectStage === "analyzing"
               ? "Analyzing project"
               : analysisReady
@@ -154,7 +154,7 @@ export function VideoWorkspace({
             </label>
           ) : null}
           <span
-            className={`size-2 rounded-full ${
+            className={`size-2 rounded-full shadow-[0_0_16px_currentColor] ${
               analysisReady ? "bg-emerald-400" : "bg-sky-400"
             }`}
           />
@@ -169,7 +169,7 @@ export function VideoWorkspace({
       </div>
 
       <div
-        className={`relative grid flex-1 place-items-center overflow-hidden rounded-[22px] border bg-[linear-gradient(135deg,#111318,#181b22_48%,#101116)] transition ${
+        className={`relative grid flex-1 place-items-center overflow-hidden rounded-[26px] border bg-[radial-gradient(circle_at_50%_0%,rgba(56,189,248,0.10),transparent_34%),linear-gradient(135deg,#101217,#181b22_48%,#090a0d)] transition duration-200 ${
           isDragging
             ? "border-sky-300/70 shadow-[0_0_0_1px_rgba(125,211,252,0.35),0_24px_80px_rgba(14,165,233,0.14)]"
             : "border-white/10"
@@ -182,7 +182,7 @@ export function VideoWorkspace({
           ref={fileInputRef}
           type="file"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.028)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.028)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
         <div className="absolute left-5 top-5 z-10 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-medium text-zinc-400 backdrop-blur">
           {currentProject?.width
             ? `${currentProject.orientation} - ${currentProject.width} x ${currentProject.height}`
@@ -213,7 +213,7 @@ export function VideoWorkspace({
               transcriptionMode={transcriptionMode}
               transcriptionNotice={transcriptionNotice}
             />
-            <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-black/60">
+            <div className="relative w-full max-w-4xl overflow-hidden rounded-[26px] border border-white/10 bg-black shadow-[0_28px_90px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.03)]">
               {currentProject.objectUrl ? (
                 <video
                   className="max-h-[38vh] w-full bg-black"
@@ -240,7 +240,7 @@ export function VideoWorkspace({
                       the original video file between sessions.
                     </p>
                     <button
-                      className="mt-5 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition hover:bg-sky-300"
+                      className="mt-5 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300"
                       onClick={onOpenFilePicker}
                       type="button"
                     >

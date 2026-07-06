@@ -32,8 +32,8 @@ export default function DashboardPage() {
       eyebrow="Good morning"
       title="Welcome back to Sidekik"
     >
-      <div className="mx-auto grid max-w-7xl gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="space-y-5">
+      <div className="mx-auto grid max-w-7xl gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="space-y-6">
           <SurfaceCard className="bg-[linear-gradient(135deg,rgba(56,189,248,0.14),rgba(24,24,27,0.92)_46%,rgba(0,0,0,0.84))]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div>
@@ -49,7 +49,7 @@ export default function DashboardPage() {
                 </p>
               </div>
               <Link
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition hover:bg-sky-300"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300"
                 href={`/editor/${continueProject.id}`}
               >
                 Open Editor
@@ -66,7 +66,7 @@ export default function DashboardPage() {
               <div className="grid gap-3 md:grid-cols-3">
                 {mockProjects.map((project) => (
                 <Link
-                  className="rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition hover:bg-white/[0.06]"
+                  className="rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.06] hover:shadow-[0_20px_55px_rgba(0,0,0,0.25)]"
                   href={`/editor/${project.id}`}
                   key={project.id}
                 >
@@ -101,7 +101,7 @@ export default function DashboardPage() {
               <div className="grid gap-2">
                 {mockExports.map((exportItem) => (
                 <div
-                  className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-zinc-900/80 px-4 py-3"
+                  className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-zinc-900/80 px-4 py-3 transition duration-200 hover:border-white/15 hover:bg-white/[0.045]"
                   key={`${exportItem.name}-${exportItem.format}`}
                 >
                   <div className="min-w-0">
@@ -126,7 +126,7 @@ export default function DashboardPage() {
           </SurfaceCard>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6">
           <SurfaceCard>
             <SectionTitle>Quick Actions</SectionTitle>
             <div className="grid gap-2">
@@ -141,7 +141,7 @@ export default function DashboardPage() {
 
                 return (
                   <Link
-                    className="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.035] px-4 py-3 text-sm font-bold text-zinc-200 transition hover:bg-white/[0.06]"
+                    className="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.035] px-4 py-3 text-sm font-bold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.06]"
                     href={href}
                     key={action}
                   >

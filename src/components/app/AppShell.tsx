@@ -33,11 +33,15 @@ export function AppShell({
 }>) {
   return (
     <main className="min-h-screen bg-[#090a0d] text-zinc-100">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(56,189,248,0.14),transparent_28%),radial-gradient(circle_at_86%_16%,rgba(168,85,247,0.1),transparent_30%),linear-gradient(145deg,rgba(255,255,255,0.05),transparent_35%)]" />
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(56,189,248,0.12),transparent_28%),radial-gradient(circle_at_86%_16%,rgba(168,85,247,0.08),transparent_30%),linear-gradient(145deg,rgba(255,255,255,0.045),transparent_35%)]" />
 
       <div className="relative flex min-h-screen">
-        <aside className="hidden w-[260px] shrink-0 border-r border-white/10 bg-zinc-950/75 p-4 shadow-2xl shadow-black/25 backdrop-blur-xl lg:flex lg:flex-col">
-          <Link className="flex h-12 items-center px-2" href="/dashboard">
+        <aside className="hidden w-[268px] shrink-0 border-r border-white/10 bg-zinc-950/78 p-5 shadow-2xl shadow-black/25 backdrop-blur-xl lg:flex lg:flex-col">
+          <Link
+            aria-label="Go to dashboard"
+            className="flex h-12 cursor-pointer items-center rounded-lg px-2 transition duration-150 hover:scale-[1.01] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            href="/dashboard"
+          >
             <Image
               alt="sidekik"
               className="h-9 w-auto"
@@ -48,14 +52,14 @@ export function AppShell({
             />
           </Link>
 
-          <nav className="mt-8 grid gap-1">
+          <nav className="mt-9 grid gap-1.5">
             {navigationItems.map(({ href, icon: Icon, label, meta }) => {
               const isActive = activePath === href;
               const itemClassName = cn(
-                "flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold transition",
+                "group relative flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold transition duration-200",
                 isActive
-                  ? "bg-sky-400 text-zinc-950 shadow-lg shadow-sky-950/30"
-                  : "text-zinc-400 hover:bg-white/[0.05] hover:text-zinc-100",
+                  ? "bg-white/[0.08] text-zinc-50 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),0_10px_30px_rgba(0,0,0,0.2)]"
+                  : "text-zinc-400 hover:bg-white/[0.05] hover:text-zinc-100 hover:translate-x-0.5",
                 !href && "cursor-not-allowed opacity-70 hover:bg-transparent",
               );
 
@@ -65,6 +69,9 @@ export function AppShell({
                   href={href}
                   key={label}
                 >
+                  {isActive ? (
+                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full bg-sky-300 shadow-[0_0_18px_rgba(125,211,252,0.55)]" />
+                  ) : null}
                   <Icon className="size-4 shrink-0" />
                   <span className="min-w-0 flex-1 truncate">{label}</span>
                   {meta ? (
@@ -87,7 +94,7 @@ export function AppShell({
             })}
           </nav>
 
-          <div className="mt-auto rounded-3xl border border-white/10 bg-white/[0.035] p-4">
+          <div className="mt-auto rounded-[26px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-4 shadow-xl shadow-black/20">
             <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
               Current Workspace
             </div>
@@ -99,9 +106,13 @@ export function AppShell({
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
-          <header className="flex min-h-16 items-center justify-between border-b border-white/10 bg-zinc-950/70 px-5 backdrop-blur-xl sm:px-8">
+          <header className="flex min-h-16 items-center justify-between border-b border-white/10 bg-zinc-950/72 px-5 backdrop-blur-xl sm:px-8">
             <div className="flex min-w-0 items-center gap-3">
-              <Link className="flex h-10 shrink-0 items-center lg:hidden" href="/dashboard">
+              <Link
+                aria-label="Go to dashboard"
+                className="flex h-10 shrink-0 cursor-pointer items-center rounded-lg transition duration-150 hover:scale-[1.01] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 lg:hidden"
+                href="/dashboard"
+              >
                 <Image
                   alt="sidekik"
                   className="h-8 w-auto"
@@ -156,7 +167,33 @@ export function AppShell({
             </div>
           </header>
 
-          <div className="flex-1 overflow-auto p-5 sm:p-8">{children}</div>
+          <nav className="border-b border-white/10 bg-zinc-950/60 px-4 py-3 backdrop-blur-xl lg:hidden">
+            <div className="flex gap-2 overflow-x-auto">
+              {navigationItems
+                .filter((item) => item.href)
+                .map(({ href, icon: Icon, label }) => {
+                  const isActive = activePath === href;
+
+                  return (
+                    <Link
+                      className={cn(
+                        "inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-xs font-bold transition duration-200",
+                        isActive
+                          ? "border-sky-300/30 bg-sky-300/15 text-sky-100 shadow-[0_0_22px_rgba(56,189,248,0.08)]"
+                          : "border-white/10 bg-white/[0.035] text-zinc-400 hover:bg-white/[0.07] hover:text-zinc-100",
+                      )}
+                      href={href as string}
+                      key={label}
+                    >
+                      <Icon className="size-3.5" />
+                      {label}
+                    </Link>
+                  );
+                })}
+            </div>
+          </nav>
+
+          <div className="flex-1 overflow-auto p-5 sm:p-8 lg:p-9">{children}</div>
         </div>
       </div>
     </main>

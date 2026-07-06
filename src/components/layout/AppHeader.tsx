@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useProject } from "@/src/features/project/ProjectContext";
 
 export function AppHeader() {
@@ -9,7 +10,11 @@ export function AppHeader() {
   return (
     <nav className="flex h-16 items-center justify-between border-b border-white/10 bg-zinc-950/70 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 items-center">
+        <Link
+          aria-label="Go to dashboard"
+          className="flex h-10 shrink-0 cursor-pointer items-center rounded-lg transition duration-150 hover:scale-[1.01] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          href="/dashboard"
+        >
           <Image
             alt="sidekik"
             className="h-9 w-auto"
@@ -18,7 +23,7 @@ export function AppHeader() {
             src="/images/sidekik-logo-white.png"
             width={146}
           />
-        </div>
+        </Link>
         <div className="min-w-0">
           <p className="text-xs text-zinc-500">
             The creative sidekik behind every great video.

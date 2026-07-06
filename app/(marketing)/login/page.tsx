@@ -9,7 +9,11 @@ export default function LoginPage() {
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_22%_12%,rgba(56,189,248,0.14),transparent_30%),linear-gradient(145deg,rgba(255,255,255,0.05),transparent_34%)]" />
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center px-5 py-12">
         <section className="w-full max-w-md rounded-[32px] border border-white/10 bg-zinc-950/80 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl">
-          <Link href="/" className="inline-flex">
+          <Link
+            aria-label="Go to Sidekik home"
+            className="inline-flex cursor-pointer rounded-lg transition duration-150 hover:scale-[1.01] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            href="/"
+          >
             <Image
               alt="sidekik"
               className="h-10 w-auto"

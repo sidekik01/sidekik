@@ -11,14 +11,14 @@ export default function ProjectsPage() {
       eyebrow="Projects Dashboard"
       title="Projects"
     >
-      <div className="mx-auto max-w-7xl space-y-5">
+      <div className="mx-auto max-w-7xl space-y-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl text-sm leading-6 text-zinc-400">
             Manage every video project from upload through creative review,
             captions, rendering, and export.
           </p>
           <Link
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition hover:bg-sky-300"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300"
             href="/projects/new"
           >
             <Plus className="size-4" />
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
         {mockProjects.length ? (
           <div className="grid gap-4 lg:grid-cols-3">
             {mockProjects.map((project) => (
-            <SurfaceCard className="p-4" key={project.id}>
+            <SurfaceCard className="p-4 transition duration-200 hover:-translate-y-0.5" key={project.id}>
               <div className="aspect-video rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(56,189,248,0.2),rgba(24,24,27,0.95))]" />
               <div className="mt-4 flex items-start justify-between gap-3">
                 <div className="min-w-0">
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <Link
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-bold text-zinc-100 transition hover:bg-white/[0.08]"
+                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-bold text-zinc-100 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.08]"
                 href={`/editor/${project.id}`}
               >
                 Open Project
@@ -97,7 +97,7 @@ export default function ProjectsPage() {
               },
             ].map((step, index) => (
               <div
-                className="rounded-3xl border border-white/8 bg-white/[0.035] p-5"
+                className="rounded-3xl border border-white/8 bg-white/[0.035] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055]"
                 key={step.title}
               >
                 <div className="grid size-9 place-items-center rounded-2xl bg-sky-300 text-sm font-black text-zinc-950">
@@ -116,7 +116,7 @@ export default function ProjectsPage() {
             ))}
           </div>
           <Link
-            className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition hover:bg-sky-300"
+            className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-5 py-3 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300"
             href="/projects/new"
           >
             Start New Project

@@ -48,12 +48,12 @@ function WorkflowStages({
 
         return (
           <button
-            className={`flex items-center gap-3 rounded-2xl border px-3 py-3 text-left transition ${
+            className={`group relative flex items-center gap-3 rounded-2xl border px-3 py-3 text-left transition duration-200 ${
               isActive
-                ? "border-sky-300/40 bg-sky-300/10 text-sky-100"
+                ? "border-sky-300/40 bg-sky-300/12 text-sky-100 shadow-[0_0_28px_rgba(56,189,248,0.08)]"
                 : stage.isComplete
-                  ? "border-emerald-300/20 bg-emerald-300/10 text-emerald-100 hover:bg-emerald-300/15"
-                  : "border-white/10 bg-white/[0.035] text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-100"
+                  ? "border-emerald-300/20 bg-emerald-300/10 text-emerald-100 hover:-translate-y-0.5 hover:bg-emerald-300/15"
+                  : "border-white/10 bg-white/[0.035] text-zinc-400 hover:-translate-y-0.5 hover:bg-white/[0.06] hover:text-zinc-100"
             }`}
             key={stage.id}
             onClick={() => onTabChange(stage.id)}
@@ -175,7 +175,7 @@ export function RightSidebar({
 
   return (
     <Panel as="aside" className="flex min-h-0 flex-col p-4">
-      <div className="mb-5 space-y-3">
+      <div className="mb-5 space-y-4">
         <div className="flex items-center justify-between gap-3">
           <div>
             <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
@@ -230,7 +230,7 @@ export function RightSidebar({
 
       <div className="mt-4 border-t border-white/10 pt-4">
         <Button
-          className="w-full rounded-2xl"
+          className="w-full rounded-2xl shadow-[0_14px_38px_rgba(56,189,248,0.12)]"
           disabled={activeTab === "Analyze" && (!analysisReady || !currentProject)}
           onClick={handleNextStep}
           size="lg"

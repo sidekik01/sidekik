@@ -1,7 +1,20 @@
+import Link from "next/link";
 import { AppShell } from "@/src/components/app/AppShell";
 import { SectionTitle, SurfaceCard } from "@/src/components/app/AppCards";
 
-const settingsSections = [
+type SettingsSection =
+  | {
+      description: string;
+      title: string;
+      href?: never;
+    }
+  | {
+      description: string;
+      href: string;
+      title: string;
+    };
+
+const settingsSections: SettingsSection[] = [
   {
     description: "Workspace name, default client, and team preferences.",
     title: "Workspace",
@@ -41,7 +54,7 @@ export default function SettingsPage() {
           <div className="grid gap-3 md:grid-cols-2">
             {settingsSections.map((section) => (
               <div
-                className="rounded-3xl border border-white/8 bg-white/[0.035] p-5"
+                className="rounded-3xl border border-white/8 bg-white/[0.035] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055]"
                 key={section.title}
               >
                 <h3 className="text-lg font-black text-white">
@@ -50,13 +63,13 @@ export default function SettingsPage() {
                 <p className="mt-3 text-sm leading-6 text-zinc-400">
                   {section.description}
                 </p>
-                {"href" in section ? (
-                  <a
-                    className="mt-5 inline-flex rounded-2xl border border-white/8 bg-zinc-900/80 px-4 py-3 text-xs font-bold text-zinc-200 transition hover:bg-white/[0.06]"
+                {section.href ? (
+                  <Link
+                    className="mt-5 inline-flex rounded-2xl border border-white/8 bg-zinc-900/80 px-4 py-3 text-xs font-bold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.06]"
                     href={section.href}
                   >
                     Open
-                  </a>
+                  </Link>
                 ) : (
                   <div className="mt-5 rounded-2xl border border-white/8 bg-zinc-900/80 px-4 py-3 text-xs font-bold text-zinc-500">
                     Coming soon

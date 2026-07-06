@@ -154,7 +154,7 @@ export function BrandBuilderPage() {
             const isSelected = selectedBrandId === brand.id;
 
             return (
-              <SurfaceCard className="p-5" key={brand.id}>
+              <SurfaceCard className="p-5 transition duration-200 hover:-translate-y-0.5" key={brand.id}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex min-w-0 items-center gap-3">
                     <div

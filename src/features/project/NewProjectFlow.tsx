@@ -198,7 +198,7 @@ export function NewProjectFlow() {
       eyebrow="New Project"
       title="Create a Sidekik project"
     >
-      <div className="mx-auto max-w-6xl space-y-5">
+      <div className="mx-auto max-w-6xl space-y-6">
         <SurfaceCard>
           <div className="grid gap-3 md:grid-cols-3">
             {["Choose Brand", "Upload Video", "Project Setup"].map(
@@ -214,12 +214,12 @@ export function NewProjectFlow() {
 
                 return (
                   <button
-                    className={`rounded-3xl border p-4 text-left transition ${
+                    className={`rounded-3xl border p-4 text-left transition duration-200 hover:-translate-y-0.5 ${
                       isActive
-                        ? "border-sky-300/35 bg-sky-300/10"
+                        ? "border-sky-300/35 bg-sky-300/10 shadow-[0_0_28px_rgba(56,189,248,0.08)]"
                         : isComplete
                           ? "border-emerald-300/20 bg-emerald-300/10"
-                          : "border-white/10 bg-white/[0.035]"
+                          : "border-white/10 bg-white/[0.035] hover:bg-white/[0.055]"
                     }`}
                     key={step}
                     onClick={() => setCurrentStep(stepNumber)}

@@ -102,7 +102,7 @@ function ProductScreenshot() {
       className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10"
       id="demo"
     >
-      <div className="overflow-hidden rounded-[32px] border border-white/10 bg-zinc-950/80 shadow-2xl shadow-black/40">
+      <div className="overflow-hidden rounded-[36px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(24,24,27,0.88)_34%,rgba(8,9,12,0.96))] shadow-[0_34px_110px_rgba(0,0,0,0.48),0_0_70px_rgba(56,189,248,0.06)]">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div className="flex items-center gap-2">
             <span className="size-3 rounded-full bg-red-400" />
@@ -120,7 +120,7 @@ function ProductScreenshot() {
             {["Analyze", "Captions", "Style", "Review", "Export"].map(
               (item) => (
                 <div
-                  className="mb-2 rounded-2xl border border-white/8 bg-zinc-900/80 px-3 py-3 text-sm text-zinc-300"
+                  className="mb-2 rounded-2xl border border-white/8 bg-zinc-900/80 px-3 py-3 text-sm text-zinc-300 shadow-inner shadow-black/20"
                   key={item}
                 >
                   {item}
@@ -132,7 +132,7 @@ function ProductScreenshot() {
           <div className="rounded-3xl border border-sky-300/15 bg-[linear-gradient(145deg,rgba(14,165,233,0.14),rgba(24,24,27,0.96)_45%,rgba(0,0,0,0.92))] p-4">
             <div className="aspect-video overflow-hidden rounded-[24px] border border-white/10 bg-black shadow-inner shadow-black">
               <div className="flex h-full items-center justify-center">
-                <div className="w-3/5 rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-center">
+                <div className="w-3/5 rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-center shadow-2xl shadow-black/35 backdrop-blur">
                   <Clapperboard className="mx-auto mb-4 size-10 text-sky-200" />
                   <div className="text-xl font-bold text-white">
                     READY TO PUBLISH
@@ -186,7 +186,11 @@ export default function MarketingHomePage() {
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(56,189,248,0.15),transparent_30%),radial-gradient(circle_at_82%_4%,rgba(168,85,247,0.12),transparent_28%),linear-gradient(145deg,rgba(255,255,255,0.06),transparent_36%)]" />
 
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <Link className="flex items-center" href="/">
+        <Link
+          aria-label="Go to Sidekik home"
+          className="flex cursor-pointer items-center rounded-lg transition duration-150 hover:scale-[1.01] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          href="/"
+        >
           <Image
             alt="sidekik"
             className="h-9 w-auto"
@@ -199,7 +203,7 @@ export default function MarketingHomePage() {
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-zinc-400 md:flex">
           {navItems.map((item) => (
-            <a className="transition hover:text-white" href={item.href} key={item.href}>
+            <a className="rounded-full px-2 py-1 transition duration-200 hover:bg-white/[0.04] hover:text-white" href={item.href} key={item.href}>
               {item.label}
             </a>
           ))}
@@ -207,13 +211,13 @@ export default function MarketingHomePage() {
 
         <div className="flex items-center gap-3">
           <Link
-            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:text-white sm:inline-flex"
+            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-zinc-300 transition duration-200 hover:bg-white/[0.04] hover:text-white sm:inline-flex"
             href="/login"
           >
             Sign In
           </Link>
           <Link
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-zinc-950 shadow-lg shadow-black/25 transition hover:bg-sky-100"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-zinc-950 shadow-lg shadow-black/25 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-100 hover:shadow-black/35"
             href="/signup"
           >
             Get Started
@@ -222,7 +226,7 @@ export default function MarketingHomePage() {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto grid min-h-[calc(100vh-88px)] w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_460px] lg:px-10">
+      <section className="relative z-10 mx-auto grid min-h-[calc(100vh-88px)] w-full max-w-7xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 lg:grid-cols-[minmax(0,1fr)_460px] lg:px-10">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <SectionLabel>AI post-production workspace</SectionLabel>
@@ -243,21 +247,21 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-300 px-6 py-3 text-sm font-black text-zinc-950 shadow-xl shadow-sky-950/40 transition hover:bg-sky-200"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-300 px-6 py-3 text-sm font-black text-zinc-950 shadow-xl shadow-sky-950/40 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-200 hover:shadow-sky-950/55"
               href="/signup"
             >
               Start Free
               <ArrowRight className="size-4" />
             </Link>
             <a
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-bold text-zinc-100 transition hover:bg-white/[0.08]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-bold text-zinc-100 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.08]"
               href="#demo"
             >
               <Play className="size-4" />
               Watch Demo
             </a>
             <a
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-bold text-zinc-100 transition hover:bg-white/[0.08]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-bold text-zinc-100 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.08]"
               href="mailto:hello@momentumstudios.us?subject=Sidekik%20Beta%20Feedback"
             >
               <Send className="size-4" />
@@ -268,7 +272,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
 
         <div className="relative">
           <div className="absolute inset-8 rounded-full bg-sky-400/20 blur-3xl" />
-          <div className="relative rounded-[36px] border border-white/10 bg-zinc-950/85 p-4 shadow-2xl shadow-black/50">
+          <div className="relative rounded-[36px] border border-white/10 bg-zinc-950/85 p-4 shadow-[0_34px_100px_rgba(0,0,0,0.55),0_0_60px_rgba(56,189,248,0.08)] transition duration-200 hover:-translate-y-1 hover:border-white/15">
             <div className="rounded-[28px] border border-white/10 bg-black p-3">
               <div className="aspect-[9/16] rounded-[22px] bg-[linear-gradient(180deg,rgba(56,189,248,0.24),rgba(24,24,27,0.96)_42%,rgba(0,0,0,1))] p-5">
                 <div className="flex justify-between text-xs font-semibold text-zinc-400">
@@ -313,7 +317,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
           <div className="grid gap-3">
             {differentiators.map((item) => (
               <div
-                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-sm font-semibold leading-6 text-zinc-300"
+                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-sm font-semibold leading-6 text-zinc-300 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055]"
                 key={item}
               >
                 <BadgeCheck className="mb-4 size-5 text-sky-200" />
@@ -335,7 +339,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
           <div className="grid gap-3 sm:grid-cols-2">
             {creatorTypes.map((type) => (
               <div
-                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-lg font-bold text-zinc-100"
+                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-lg font-bold text-zinc-100 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055]"
                 key={type}
               >
                 <BadgeCheck className="mb-5 size-6 text-emerald-200" />
@@ -359,7 +363,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {features.map((feature) => (
             <div
-              className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6"
+              className="rounded-[30px] border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055] hover:shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
               key={feature.title}
             >
               <feature.icon className="mb-8 size-8 text-sky-200" />
@@ -387,7 +391,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
             <div className="grid gap-3">
               {["Momentum", "Holliday", "Whalley", "PacBrake"].map((brand) => (
                 <div
-                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4"
+                className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4 transition duration-200 hover:border-white/15 hover:bg-white/[0.04]"
                   key={brand}
                 >
                   <span className="font-bold text-zinc-100">{brand}</span>
@@ -409,7 +413,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
               A calm creative review layer for every video.
             </h2>
           </div>
-          <div className="rounded-[28px] border border-white/10 bg-zinc-950/80 p-6">
+          <div className="rounded-[30px] border border-white/10 bg-zinc-950/80 p-6 shadow-2xl shadow-black/25">
             {[
               "Reviews captions for readability.",
               "Suggests highlights from deterministic rules.",
@@ -441,7 +445,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
             ["Studio", "Soon", "Brand presets, workspaces, and team flow."],
           ].map(([name, price, detail]) => (
             <div
-              className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6"
+              className="rounded-[30px] border border-white/10 bg-white/[0.035] p-6 transition duration-200 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.055] hover:shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
               key={name}
             >
               <Layers3 className="mb-8 size-7 text-sky-200" />
@@ -449,7 +453,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
               <div className="mt-4 text-4xl font-black text-white">{price}</div>
               <p className="mt-4 leading-7 text-zinc-400">{detail}</p>
               <Link
-                className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-zinc-950 transition hover:bg-sky-100"
+                className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-zinc-950 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-100"
                 href="/signup"
               >
                 Start Free
@@ -469,7 +473,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
         <div className="mt-10 grid gap-3">
           {faqs.map((faq) => (
             <div
-              className="rounded-3xl border border-white/10 bg-white/[0.035] p-5"
+              className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 transition duration-200 hover:border-white/15 hover:bg-white/[0.055]"
               key={faq.question}
             >
               <h3 className="font-black text-white">{faq.question}</h3>

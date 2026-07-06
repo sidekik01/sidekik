@@ -95,10 +95,10 @@ export function Timeline() {
   }
 
   return (
-    <section className="rounded-[28px] border border-white/10 bg-zinc-950/85 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl">
+    <section className="rounded-[30px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(24,24,27,0.88)_34%,rgba(9,10,13,0.94))] p-4 shadow-2xl shadow-black/30 backdrop-blur-xl">
       <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h2 className="text-sm font-semibold text-zinc-200">
+          <h2 className="text-sm font-black text-zinc-100">
             Caption Timeline
           </h2>
           <div className="mt-1 flex flex-wrap items-center gap-3 font-mono text-xs text-zinc-500">
@@ -119,7 +119,7 @@ export function Timeline() {
 
         <div className="flex flex-wrap items-center gap-2">
           <button
-            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition hover:bg-white/[0.07] disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.07] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={zoomIndex === 0}
             onClick={() => setZoomIndex((index) => Math.max(index - 1, 0))}
             type="button"
@@ -128,7 +128,7 @@ export function Timeline() {
             Zoom Out
           </button>
           <button
-            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition hover:bg-white/[0.07]"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.07]"
             onClick={() => setZoomIndex(0)}
             type="button"
           >
@@ -136,7 +136,7 @@ export function Timeline() {
             Fit to Video
           </button>
           <button
-            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition hover:bg-white/[0.07] disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.07] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={zoomIndex === zoomLevels.length - 1}
             onClick={() =>
               setZoomIndex((index) =>
@@ -154,12 +154,12 @@ export function Timeline() {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-white/10 bg-zinc-950">
+      <div className="overflow-x-auto rounded-[24px] border border-white/10 bg-zinc-950 shadow-inner shadow-black/40">
         <div
           className="relative min-h-32"
           style={{ minWidth: `${zoomLevel * 100}%` }}
         >
-          <div className="relative h-9 border-b border-white/8 bg-white/[0.025]">
+          <div className="relative h-9 border-b border-white/8 bg-white/[0.035]">
             {rulerTicks.map((tick) => (
               <div
                 className="absolute top-0 h-full border-l border-white/8"
@@ -173,7 +173,7 @@ export function Timeline() {
             ))}
           </div>
 
-          <div className="relative h-24 overflow-hidden bg-zinc-900">
+          <div className="relative h-24 overflow-hidden bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(24,24,27,0.82))]">
             <div
               className="absolute top-0 z-30 h-full w-px bg-sky-200 shadow-[0_0_16px_rgba(125,211,252,0.75)]"
               style={{ left: `${playheadPosition}%` }}
@@ -189,7 +189,7 @@ export function Timeline() {
 
                 return (
                   <button
-                    className={`absolute top-4 h-16 overflow-hidden rounded-xl px-3 py-2 text-left text-[11px] font-semibold leading-4 transition ${
+                    className={`absolute top-4 h-16 overflow-hidden rounded-xl px-3 py-2 text-left text-[11px] font-semibold leading-4 transition duration-200 hover:-translate-y-0.5 ${
                       isSelected
                         ? "bg-violet-300/35 text-violet-50 ring-2 ring-violet-200/70 shadow-lg shadow-violet-950/30"
                         : isActive
@@ -214,8 +214,13 @@ export function Timeline() {
                 );
               })
             ) : (
-              <div className="grid h-full place-items-center text-sm text-zinc-500">
-                Generate a transcript to populate caption blocks.
+              <div className="grid h-full place-items-center px-6 text-center text-sm text-zinc-500">
+                <div>
+                  <div className="font-bold text-zinc-300">Timeline is ready</div>
+                  <div className="mt-1 text-xs">
+                    Generate captions to populate editable timeline blocks.
+                  </div>
+                </div>
               </div>
             )}
           </div>

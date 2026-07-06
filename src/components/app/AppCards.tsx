@@ -15,7 +15,7 @@ export function SurfaceCard({
   return (
     <section
       className={cn(
-        "rounded-[28px] border border-white/10 bg-zinc-950/80 p-5 shadow-2xl shadow-black/25 backdrop-blur-xl",
+        "rounded-[30px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(24,24,27,0.86)_36%,rgba(9,10,13,0.92))] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl transition duration-200 hover:border-white/15 hover:shadow-[0_22px_70px_rgba(0,0,0,0.36),0_0_34px_rgba(56,189,248,0.045)]",
         className,
       )}
       {...props}
@@ -35,13 +35,13 @@ export function SectionTitle({
   children: string;
 }>) {
   return (
-    <div className="mb-4 flex items-center justify-between gap-3">
-      <h2 className="text-sm font-black uppercase tracking-wider text-zinc-400">
+    <div className="mb-5 flex items-center justify-between gap-3">
+      <h2 className="text-sm font-black uppercase tracking-[0.14em] text-zinc-400">
         {children}
       </h2>
       {actionHref && actionLabel ? (
         <Link
-          className="inline-flex items-center gap-1 text-xs font-bold text-sky-200 transition hover:text-sky-100"
+          className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-bold text-sky-200 transition duration-200 hover:bg-sky-300/10 hover:text-sky-100"
           href={actionHref}
         >
           {actionLabel}
@@ -61,7 +61,7 @@ export function PrimaryLink({
 }>) {
   return (
     <Link
-      className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-4 py-2 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition hover:bg-sky-300"
+      className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-400 px-4 py-2 text-sm font-black text-zinc-950 shadow-lg shadow-sky-950/30 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300 hover:shadow-sky-950/45 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
       href={href}
     >
       <Plus className="size-4" />
