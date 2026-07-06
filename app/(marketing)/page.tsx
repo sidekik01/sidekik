@@ -9,6 +9,7 @@ import {
   Layers3,
   Palette,
   Play,
+  Send,
   Sparkles,
   Upload,
 } from "lucide-react";
@@ -53,6 +54,12 @@ const features = [
   },
 ];
 
+const differentiators = [
+  "Reviews your edit for pacing, readability, safe zones, and platform fit.",
+  "Keeps transcript, captions, style, brand, timeline, and export prep connected.",
+  "Gives creators a calm review workflow instead of another pile of settings.",
+];
+
 const faqs = [
   {
     answer:
@@ -66,12 +73,17 @@ const faqs = [
   },
   {
     answer:
-      "No. Sidekik is designed to help you finish stronger videos faster, with creator-focused defaults and review workflows.",
+      "No. Sidekik starts after the edit. It helps you caption, style, review, and prepare finished videos for publishing.",
     question: "Does Sidekik replace my editor?",
   },
   {
     answer:
-      "Start free will open the Sidekik studio. Team and agency plans are planned as the workspace layer grows.",
+      "Caption generators stop at text. Sidekik combines captions with brand presets, timeline editing, creative review, export prep, and platform guidance.",
+    question: "How is Sidekik different from a caption generator?",
+  },
+  {
+    answer:
+      "Sidekik is currently in private beta. Start free creates a local beta workspace while the SaaS layer comes online.",
     question: "Can I try it now?",
   },
 ];
@@ -196,13 +208,13 @@ export default function MarketingHomePage() {
         <div className="flex items-center gap-3">
           <Link
             className="hidden rounded-full px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:text-white sm:inline-flex"
-            href="/dashboard"
+            href="/login"
           >
             Sign In
           </Link>
           <Link
             className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-zinc-950 shadow-lg shadow-black/25 transition hover:bg-sky-100"
-            href="/dashboard"
+            href="/signup"
           >
             Get Started
             <ArrowRight className="size-4" />
@@ -212,12 +224,17 @@ export default function MarketingHomePage() {
 
       <section className="relative z-10 mx-auto grid min-h-[calc(100vh-88px)] w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_460px] lg:px-10">
         <div>
-          <SectionLabel>AI post-production workspace</SectionLabel>
+          <div className="flex flex-wrap items-center gap-2">
+            <SectionLabel>AI post-production workspace</SectionLabel>
+            <div className="inline-flex items-center rounded-full border border-sky-300/15 bg-sky-300/10 px-3 py-1 text-xs font-bold text-sky-100">
+              Sidekik is currently in private beta.
+            </div>
+          </div>
           <h1 className="mt-8 max-w-4xl text-5xl font-black leading-[1.02] text-white sm:text-7xl lg:text-8xl">
             Every great video deserves a Sidekik.
           </h1>
           <p className="mt-7 max-w-2xl text-xl font-semibold leading-8 text-sky-100">
-            The creative sidekick behind every great video.
+            The creative sidekik behind every great video.
           </p>
           <p className="mt-5 max-w-2xl whitespace-pre-line text-lg leading-8 text-zinc-400">
             {`Upload your edit.
@@ -227,7 +244,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-300 px-6 py-3 text-sm font-black text-zinc-950 shadow-xl shadow-sky-950/40 transition hover:bg-sky-200"
-              href="/dashboard"
+              href="/signup"
             >
               Start Free
               <ArrowRight className="size-4" />
@@ -238,6 +255,13 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
             >
               <Play className="size-4" />
               Watch Demo
+            </a>
+            <a
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-bold text-zinc-100 transition hover:bg-white/[0.08]"
+              href="mailto:hello@momentumstudios.us?subject=Sidekik%20Beta%20Feedback"
+            >
+              <Send className="size-4" />
+              Send Feedback
             </a>
           </div>
         </div>
@@ -271,6 +295,34 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
       </section>
 
       <ProductScreenshot />
+
+      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <SectionLabel>What Sidekik Solves</SectionLabel>
+            <h2 className="mt-5 text-4xl font-black leading-tight text-white sm:text-5xl">
+              Everything after the edit, without the handoff chaos.
+            </h2>
+            <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
+              Sidekik is for creators, editors, agencies, and brand teams who
+              need to turn finished cuts into publish-ready videos faster. It
+              is not just a caption generator; it is a post-production workspace
+              for captions, style, review, brand consistency, and export prep.
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {differentiators.map((item) => (
+              <div
+                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-sm font-semibold leading-6 text-zinc-300"
+                key={item}
+              >
+                <BadgeCheck className="mb-4 size-5 text-sky-200" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -398,7 +450,7 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
               <p className="mt-4 leading-7 text-zinc-400">{detail}</p>
               <Link
                 className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-zinc-950 transition hover:bg-sky-100"
-                href="/dashboard"
+                href="/signup"
               >
                 Start Free
               </Link>
@@ -437,15 +489,22 @@ Sidekik reviews it, captions it, styles it, and helps you publish with confidenc
             width={139}
           />
           <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-500">
+            <span>The creative sidekik behind every great video.</span>
             <a className="hover:text-white" href="#features">
               Features
             </a>
             <a className="hover:text-white" href="#pricing">
               Pricing
             </a>
-            <Link className="hover:text-white" href="/dashboard">
+            <Link className="hover:text-white" href="/login">
               Sign In
             </Link>
+            <a
+              className="hover:text-white"
+              href="mailto:hello@momentumstudios.us?subject=Sidekik%20Beta%20Feedback"
+            >
+              Send Feedback
+            </a>
           </div>
         </div>
       </footer>

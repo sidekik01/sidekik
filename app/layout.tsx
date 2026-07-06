@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Sidekik",
-  description: "The creative sidekick behind every great video.",
+  description: "The creative sidekik behind every great video.",
 };
 
 export default function RootLayout({

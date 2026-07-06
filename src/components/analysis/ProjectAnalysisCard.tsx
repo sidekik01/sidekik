@@ -22,7 +22,7 @@ export function ProjectAnalysisCard({
             Analyzing Project
           </h3>
           <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400">
-            The creative sidekick behind every great video is reading local
+            The creative sidekik behind every great video is reading local
             metadata and preparing your workspace.
           </p>
         </div>

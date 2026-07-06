@@ -239,7 +239,7 @@ export function ProtectedRoute({ children }: Readonly<{ children: ReactNode }>) 
             Opening Sidekik
           </div>
           <p className="mt-2 text-xs text-zinc-500">
-            The creative sidekick behind every great video.
+            The creative sidekik behind every great video.
           </p>
         </div>
       </main>

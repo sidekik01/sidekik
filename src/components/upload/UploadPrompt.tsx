@@ -16,7 +16,7 @@ export function UploadPrompt({
         Upload your video
       </h3>
       <p className="mt-2 max-w-md text-sm leading-6 text-zinc-400">
-        The creative sidekick behind every great video. Upload an MP4, MOV, or
+        The creative sidekik behind every great video. Upload an MP4, MOV, or
         M4V file to begin.
       </p>
       <Button

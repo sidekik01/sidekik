@@ -16,7 +16,7 @@ const navigationItems = [
   { href: "/dashboard", icon: Home, label: "Dashboard" },
   { href: "/projects", icon: FolderKanban, label: "Projects" },
   { href: "/brands", icon: Palette, label: "Brands" },
-  { href: "#", icon: LayoutTemplate, label: "Templates", meta: "Coming Soon" },
+  { icon: LayoutTemplate, label: "Templates", meta: "Coming Soon" },
   { href: "/settings", icon: Settings, label: "Settings" },
 ];
 
@@ -51,15 +51,17 @@ export function AppShell({
           <nav className="mt-8 grid gap-1">
             {navigationItems.map(({ href, icon: Icon, label, meta }) => {
               const isActive = activePath === href;
+              const itemClassName = cn(
+                "flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold transition",
+                isActive
+                  ? "bg-sky-400 text-zinc-950 shadow-lg shadow-sky-950/30"
+                  : "text-zinc-400 hover:bg-white/[0.05] hover:text-zinc-100",
+                !href && "cursor-not-allowed opacity-70 hover:bg-transparent",
+              );
 
-              return (
+              return href ? (
                 <Link
-                  className={cn(
-                    "flex min-h-11 items-center gap-3 rounded-2xl px-3 text-sm font-semibold transition",
-                    isActive
-                      ? "bg-sky-400 text-zinc-950 shadow-lg shadow-sky-950/30"
-                      : "text-zinc-400 hover:bg-white/[0.05] hover:text-zinc-100",
-                  )}
+                  className={itemClassName}
                   href={href}
                   key={label}
                 >
@@ -71,6 +73,16 @@ export function AppShell({
                     </span>
                   ) : null}
                 </Link>
+              ) : (
+                <div className={itemClassName} key={label}>
+                  <Icon className="size-4 shrink-0" />
+                  <span className="min-w-0 flex-1 truncate">{label}</span>
+                  {meta ? (
+                    <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-zinc-500">
+                      {meta}
+                    </span>
+                  ) : null}
+                </div>
               );
             })}
           </nav>
@@ -88,16 +100,37 @@ export function AppShell({
 
         <div className="flex min-w-0 flex-1 flex-col">
           <header className="flex min-h-16 items-center justify-between border-b border-white/10 bg-zinc-950/70 px-5 backdrop-blur-xl sm:px-8">
-            <div className="min-w-0">
-              <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                {eyebrow ?? "Good morning"}
+            <div className="flex min-w-0 items-center gap-3">
+              <Link className="flex h-10 shrink-0 items-center lg:hidden" href="/dashboard">
+                <Image
+                  alt="sidekik"
+                  className="h-8 w-auto"
+                  height={36}
+                  priority
+                  src="/images/sidekik-logo-white.png"
+                  width={132}
+                />
+              </Link>
+              <div className="min-w-0">
+                <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                  {eyebrow ?? "Good morning"}
+                </div>
+                <h1 className="mt-1 truncate text-xl font-black text-white sm:text-2xl">
+                  {title}
+                </h1>
               </div>
-              <h1 className="mt-1 truncate text-xl font-black text-white sm:text-2xl">
-                {title}
-              </h1>
             </div>
 
             <div className="flex items-center gap-2">
+              <div className="hidden rounded-full border border-sky-300/15 bg-sky-300/10 px-3 py-1.5 text-xs font-bold text-sky-100 xl:block">
+                Sidekik is currently in private beta.
+              </div>
+              <a
+                className="hidden rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold text-zinc-300 transition hover:bg-white/[0.08] hover:text-zinc-100 sm:inline-flex"
+                href="mailto:hello@momentumstudios.us?subject=Sidekik%20Beta%20Feedback"
+              >
+                Send Feedback
+              </a>
               <div className="hidden rounded-2xl border border-white/10 bg-white/[0.035] px-3 py-2 text-right md:block">
                 <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
                   Workspace
